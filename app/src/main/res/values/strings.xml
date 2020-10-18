@@ -10,4 +10,16 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_featured">Features</string>
+    <string name="menu_recruiting">Recruiting</string>
+    <string name="menu_management">Management</string>
+    <string name="menu_communication">Communication</string>
+    <string name="menu_way_of_work">Way of work</string>
+    <string name="menu_space">Space</string>
+    <string name="menu_meetings">meetings</string>
+    <string name="menu_connection">Connection</string>
+    <string name="menu_social">Social</string>
+    <string name="menu_boundaries">Boundaries</string>
+    <string name="menu_health">Health</string>
+    <string name="menu_accountability">Accountability</string>
 </resources>

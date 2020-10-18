@@ -1,6 +1,5 @@
-include ':framework'
 include ':data'
-include ':domain'
 include ':usecases'
+include ':domain'
 include ':app'
 rootProject.name = "Compass"

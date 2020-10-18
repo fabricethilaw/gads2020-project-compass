@@ -4,17 +4,51 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
+
         <item
-            android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="@string/menu_home" />
+            android:id="@+id/nav_Featured"
+            android:title="@string/menu_featured" />
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
+            android:id="@+id/nav_recruiting"
+            android:title="@string/menu_recruiting" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
+            android:id="@+id/nav_management"
+            android:title="@string/menu_management" />
+        <item
+            android:id="@+id/nav_communication"
+            android:title="@string/menu_communication" />
+
+        <item
+            android:id="@+id/nav_way_of_work"
+            android:title="@string/menu_way_of_work" />
+
+        <item
+            android:id="@+id/nav_space"
+            android:title="@string/menu_space" />
+
+        <item
+            android:id="@+id/nav_meetings"
+            android:title="@string/menu_meetings" />
+
+        <item
+            android:id="@+id/nav_connections"
+            android:title="@string/menu_connection" />
+
+        <item
+            android:id="@+id/nav_social"
+            android:title="@string/menu_social" />
+
+        <item
+            android:id="@+id/nav_boundaries"
+            android:title="@string/menu_boundaries" />
+
+        <item
+            android:id="@+id/nav_health"
+            android:title="@string/menu_health" />
+
+        <item
+            android:id="@+id/nav_accountability"
+            android:title="@string/menu_accountability" />
+
     </group>
 </menu>
