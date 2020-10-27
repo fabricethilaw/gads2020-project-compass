@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/item_list_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/spacing_normal"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackgroundBorderless"
+    app:cardBackgroundColor="#FFF"
+    app:cardCornerRadius="6dp"
+    app:cardUseCompatPadding="true"
+    app:contentPadding="@dimen/paragraph_padding">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+      >
+
+        <TextView
+            android:id="@+id/content"
+            style="@style/TextAppearance.AppCompat.Medium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autoSizeTextType="uniform"
+            android:ellipsize="marquee"
+            android:fontFamily="@font/source_sans_pro"
+            android:lineSpacingMultiplier="1.4"
+            android:maxLength="232"
+            android:minHeight="@dimen/min_tip_content_height"
+            android:textColor="@color/card_paragraph_color"
+            tools:text="@string/dummy_tip_content_short" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/listPreferredItemHeight"
+            android:layout_marginTop="@dimen/media_block_top_margin">
+
+            <ImageView
+                android:id="@+id/tipAuthorPicture"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:paddingTop="@dimen/spacing_small"
+                android:paddingBottom="@dimen/spacing_small"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tipAuthorName"
+                style="@style/TextAppearance.AppCompat.Body2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                android:fontFamily="@font/source_sans_pro"
+                android:singleLine="true"
+                android:textColor="@color/title_color"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tipAuthorPicture"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/dummy_author_name" />
+
+            <TextView
+                android:id="@+id/tipAuthorRole"
+                style="@style/TextAppearance.AppCompat.Body1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:maxLines="2"
+                android:textColor="@color/media_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/tipAuthorName"
+                app:layout_constraintTop_toBottomOf="@id/tipAuthorName"
+                tools:text="@string/dummy_author_role" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

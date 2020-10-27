@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/blockTitle"
+        style="@style/TextAppearance.MaterialComponents.Headline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/block_title_background"
+        android:fontFamily="@font/source_sans_pro_bold"
+        android:lines="1"
+        android:paddingHorizontal="@dimen/spacing_small"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Featured" />
+
+    <TextView
+        android:id="@+id/seeMoreButton"
+        style="@style/TextAppearance.AppCompat.Body2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/source_sans_pro_bold"
+        android:gravity="center_horizontal"
+        android:lines="1"
+        android:textColor="@color/highlighted_title"
+        app:drawableEndCompat="@drawable/ic_arrow_right"
+
+        app:drawableTint="@color/highlighted_title"
+        app:layout_constraintBottom_toBottomOf="@id/blockTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/blockTitle"
+        tools:text="See all (58)" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/tipsListview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_normal"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/blockTitle"
+        app:spanCount="1"
+        tools:listitem="@layout/item_list_tip" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
