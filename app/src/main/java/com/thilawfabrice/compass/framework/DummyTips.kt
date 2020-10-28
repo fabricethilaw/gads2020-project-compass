@@ -22,7 +22,8 @@ class DummyTips : PersistenceSource {
         category: String,
         callback: (List<TipForRemoteWork>) -> Unit
     ) {
-        TODO("Not yet implemented")
+        val r = tips.filter { it.categoryLabels.contains(category) }
+        callback(r)
     }
 
     override fun saveNewTip(content: String, authorName: String, authorPicture: String) {

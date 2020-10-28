@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.thilawfabrice.compass
+package com.thilawfabrice.compass.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

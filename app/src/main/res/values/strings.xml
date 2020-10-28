@@ -10,7 +10,7 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
-    <string name="menu_featured">Features</string>
+    <string name="menu_featured">Featured</string>
     <string name="menu_recruiting">Recruiting</string>
     <string name="menu_management">Management</string>
     <string name="menu_communication">Communication</string>
@@ -32,4 +32,9 @@
     </string>
     <string name="dummy_tip_content_short">Ask yourself, did you actually need to schedule this meeting in the first place ?</string>
     <string name="see_all_block_tips">See all (%d)</string>
+    <string name="share_this_tip">Share this tip</string>
+    <string name="work_with_me">Work with me</string>
+    <string name="title_activity_tip_details" />
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>

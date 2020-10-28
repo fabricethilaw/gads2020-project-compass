@@ -1,59 +1,84 @@
 package com.thilawfabrice.compass
 
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.Menu
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import androidx.drawerlayout.widget.DrawerLayout
-import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
-import com.google.android.material.navigation.NavigationView
+import com.mikepenz.materialdrawer.model.interfaces.Nameable
+import com.thilawfabrice.compass.ui.displaytips.TipsPerCategoryFragment
+import com.thilawfabrice.compass.ui.widgets.DrawerLayoutFactory
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
     // todo set @font/source_sans_pro" font family
     private lateinit var appBarConfiguration: AppBarConfiguration
 
+    private val drawerLayoutFactory by lazy { DrawerLayoutFactory() }
+    private lateinit var actionBarDrawerToggle: ActionBarDrawerToggle
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val toolbar: Toolbar = findViewById(R.id.toolbar)
+
+        // Handle Toolbar
         setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(false)
+        supportActionBar?.setHomeButtonEnabled(true)
 
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragmentContainer, TipsPerCategoryFragment.newInstance()).commit()
 
-     /*   val fab: FloatingActionButton = findViewById(R.id.fab)
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-        }*/
-
-
-        val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
-        val navView: NavigationView = findViewById(R.id.nav_view)
-        val navController = findNavController(R.id.nav_host_fragment)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow
-            ), drawerLayout
+        actionBarDrawerToggle = ActionBarDrawerToggle(
+            this, drawer_layout,
+            toolbar, com.mikepenz.materialdrawer.R.string.material_drawer_open,
+            com.mikepenz.materialdrawer.R.string.material_drawer_close
         )
-        setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
+
+        drawer_layout.addDrawerListener(actionBarDrawerToggle)
+        drawerLayoutFactory.buildMenuItems(slider)
+
+        // specify a click listener
+        slider.onDrawerItemClickListener = { v, drawerItem, position ->
+            // do something with the clicked item :D
+            runOnUiThread {
+                val selectedItem = (drawerItem as Nameable).name!!
+                    .getText(this)
+                // Toast.makeText(this, selectedItem, Toast.LENGTH_SHORT).show()
+                selectedItem?.let { (application as Compass).tipViewModel.updateSelectedCategory(it) }
+            }
+            false
+        }
+
     }
 
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        actionBarDrawerToggle.onConfigurationChanged(newConfig)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        actionBarDrawerToggle.syncState()
+    }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.main, menu)
-        return true
+        return false
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment)
-        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+
+    override fun onBackPressed() {
+        //handle the back press :D close the drawer first and if the drawer is closed close the activity
+        if (drawer_layout?.isDrawerOpen(slider) == true) {
+            drawer_layout?.closeDrawer(slider)
+        } else {
+            super.onBackPressed()
+        }
     }
 }

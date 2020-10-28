@@ -11,4 +11,5 @@
     <dimen name="min_tip_content_height">168dp</dimen>
     <dimen name="paragraph_padding">25dp</dimen>
     <dimen name="media_block_top_margin">20dp</dimen>
+    <dimen name="micro_spacing">4dp</dimen>
 </resources>

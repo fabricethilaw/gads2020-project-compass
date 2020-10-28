@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackgroundBorderless"
+    app:cardBackgroundColor="#FFF"
+    app:cardCornerRadius="6dp"
+    app:cardElevation="0dp"
+    app:cardUseCompatPadding="true">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:overScrollMode="ifContentScrolls"
+        android:padding="@dimen/paragraph_padding"
+        android:scrollbarStyle="outsideOverlay"
+        android:scrollbars="vertical"
+        android:verticalScrollbarPosition="defaultPosition">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/TextAppearance.AppCompat.Headline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/spacing_normal"
+                android:fontFamily="@font/source_sans_pro"
+                android:text="@string/share_this_tip"
+                android:textColor="@color/title_color" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/shareOnTwitter"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="@dimen/spacing_small"
+                    android:background="@drawable/twitter_button_background"
+                    android:padding="@dimen/spacing_small"
+                    app:srcCompat="@drawable/ic_twitter"
+                    app:tint="@android:color/white" />
+
+                <ImageView
+                    android:id="@+id/shareOnFacebook"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="@dimen/spacing_small"
+                    android:background="@drawable/facebook_button_background"
+                    android:padding="@dimen/spacing_small"
+                    app:srcCompat="@drawable/ic_facebook"
+                    app:tint="@android:color/white" />
+
+                <ImageView
+                    android:id="@+id/shareOnLinkedIn"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="@dimen/spacing_small"
+                    android:background="@drawable/linkedin_button_background"
+                    android:padding="@dimen/spacing_small"
+                    app:srcCompat="@drawable/ic_linkedin"
+                    app:tint="@android:color/white" />
+
+                <ImageView
+                    android:id="@+id/shareCopy"
+                    android:layout_width="40dp"
+
+                    android:layout_height="40dp"
+                    android:background="@drawable/copy_button_background"
+                    android:padding="@dimen/spacing_small"
+                    app:srcCompat="@drawable/ic_copy"
+                    app:tint="@android:color/white" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/content"
+                style="@style/TextAppearance.AppCompat.Medium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:autoSizeTextType="uniform"
+                android:ellipsize="marquee"
+                android:fontFamily="@font/source_sans_pro"
+                android:lineSpacingMultiplier="1.4"
+                android:maxLength="232"
+                android:minHeight="@dimen/min_tip_content_height"
+                android:textColor="@color/card_paragraph_color"
+                tools:text="@string/dummy_tip_content_short" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="?android:attr/listPreferredItemHeight"
+                android:layout_marginTop="@dimen/media_block_top_margin">
+
+                <ImageView
+                    android:id="@+id/tipAuthorPicture"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:paddingTop="@dimen/spacing_small"
+                    android:paddingBottom="@dimen/spacing_small"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tipAuthorName"
+                    style="@style/TextAppearance.AppCompat.Body2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+
+                    android:fontFamily="@font/source_sans_pro"
+                    android:singleLine="true"
+                    android:textColor="@color/title_color"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tipAuthorPicture"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="@string/dummy_author_name" />
+
+                <TextView
+                    android:id="@+id/tipAuthorRole"
+                    style="@style/TextAppearance.AppCompat.Body1"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:maxLines="2"
+                    android:textColor="@color/media_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/tipAuthorName"
+                    app:layout_constraintTop_toBottomOf="@id/tipAuthorName"
+                    tools:text="@string/dummy_author_role" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/goToWebsite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/box_tip_details_button"
+                android:fontFamily="@font/source_sans_pro_bold"
+                android:foreground="?android:attr/selectableItemBackgroundBorderless"
+                android:text="@string/work_with_me"
+                android:textAllCaps="false"
+                app:backgroundTint="@null"
+                app:cornerRadius="@dimen/spacing_normal" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.cardview.widget.CardView>
