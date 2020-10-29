@@ -6,6 +6,9 @@ import android.view.View
 import android.widget.FrameLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.flexbox.FlexDirection
+import com.google.android.flexbox.FlexboxLayoutManager
+import com.google.android.flexbox.JustifyContent
 import com.thilawfabrice.compass.R
 import com.thilawfabrice.compass.domain.entities.TipForRemoteWork
 
@@ -44,7 +47,11 @@ class TipBlockLayout : FrameLayout {
     }
 
     private fun initListView() {
-        listView.setHasFixedSize(true)
+        // listView.setHasFixedSize(true)
+        val flexLayoutManager = FlexboxLayoutManager(listView.context)
+        flexLayoutManager.flexDirection = FlexDirection.ROW
+        flexLayoutManager.justifyContent = JustifyContent.SPACE_EVENLY
+        listView.layoutManager = flexLayoutManager
         listView.adapter = mAdapter
     }
 
@@ -83,8 +90,6 @@ class TipBlockLayout : FrameLayout {
     fun setItemSelectionCallback(callback: TipSelectionListener) {
         mAdapter.setItemClickListener(callback)
     }
-
-
 
 
 }

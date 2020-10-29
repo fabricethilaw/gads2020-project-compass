@@ -48,7 +48,6 @@ class TipsPerCategoryFragment : Fragment() {
 
     companion object {
         fun newInstance() = TipsPerCategoryFragment()
-
     }
 
     @UiThread
@@ -85,6 +84,7 @@ class TipsPerCategoryFragment : Fragment() {
         }
 
         override fun onShare(tip: TipForRemoteWork, socialTarget: SocialTarget) {
+
         }
 
     }
