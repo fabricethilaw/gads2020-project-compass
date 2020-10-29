@@ -25,8 +25,12 @@ class ActionsOnTips(private val repository: Repository) : InterfaceAddingTips,
     }
 
 
-    override fun saveNewTip(content:String, authorName: String, authorPicture: String) {
-      repository.saveNewTip(content = content, authorName = authorName, authorPicture = authorPicture )
+    override fun saveNewTip(content: String, authorName: String, authorPicture: String) {
+        repository.saveNewTip(
+            content = content,
+            authorName = authorName,
+            authorPicture = authorPicture
+        )
     }
 
 

@@ -10,7 +10,7 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
-    <string name="menu_featured">Features</string>
+    <string name="menu_featured">Featured</string>
     <string name="menu_recruiting">Recruiting</string>
     <string name="menu_management">Management</string>
     <string name="menu_communication">Communication</string>
@@ -22,4 +22,19 @@
     <string name="menu_boundaries">Boundaries</string>
     <string name="menu_health">Health</string>
     <string name="menu_accountability">Accountability</string>
+    <string name="dummy_author_name">Kim Gardner</string>
+    <string name="dummy_author_role">Director of Engineering,\nCoal Vox Media</string>
+    <string name="dummy_tip_content_long">Slack integration to spin up ad hoc meetings. When you\'re
+        working remotely, one of the hardest things to replicate are those side conversations,
+        quick chats, bump-into-you in the hallway type discussions that can be really
+        powerful to fix a problem or get a few heads on something in the moment.
+        Spinning up Zoom meetings quickly really helps there.
+    </string>
+    <string name="dummy_tip_content_short">Ask yourself, did you actually need to schedule this meeting in the first place ?</string>
+    <string name="see_all_block_tips">See all (%d)</string>
+    <string name="share_this_tip">Share this tip</string>
+    <string name="work_with_me">Work with me</string>
+    <string name="title_activity_tip_details" />
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>

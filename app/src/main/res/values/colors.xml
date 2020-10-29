@@ -3,4 +3,29 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
+    <color name="black">#000000</color>
+
+    <color name="screen_background">#eaecf3</color>
+
+    <!-- Text styles -->
+    <color name="title_color">#0F0F22</color>
+    <color name="highlighted_title">#0000ff</color>
+    <color name="card_paragraph_color">#060840</color>
+    <color name="media_content">#767E9D</color>
+
+
+    <color name="block_title_background">#d5d6f5</color>
+    <color name="light_blue_400">#FF29B6F6</color>
+    <color name="light_blue_600">#FF039BE5</color>
+    <color name="gray_400">#FFBDBDBD</color>
+    <color name="gray_600">#FF757575</color>
+
+    <color name="linkedin_color">#0072b1</color>
+    <color name="facebook_color">#3b5998</color>
+    <color name="twitter_color">#1DA1F2</color>
+    <color name="copy_color">#C54660</color>
+    <color name="light_blue_900">#FF01579B</color>
+    <color name="light_blue_A200">#FF40C4FF</color>
+    <color name="light_blue_A400">#FF00B0FF</color>
+    <color name="black_overlay">#66000000</color>
 </resources>

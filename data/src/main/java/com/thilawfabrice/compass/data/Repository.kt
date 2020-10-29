@@ -24,8 +24,12 @@ class Repository(
     }
 
 
-    fun saveNewTip(content:String, authorName: String, authorPicture: String) {
-        tipsPersistenceSource.saveNewTip(content = content, authorName = authorName, authorPicture = authorPicture)
+    fun saveNewTip(content: String, authorName: String, authorPicture: String) {
+        tipsPersistenceSource.saveNewTip(
+            content = content,
+            authorName = authorName,
+            authorPicture = authorPicture
+        )
     }
 
     fun saveTipToFavorite(tip: TipForRemoteWork) {
@@ -41,18 +45,18 @@ class Repository(
 interface PersistenceSource {
 
 
-    fun getFeaturedTips(callback: (List<TipForRemoteWork>) -> Unit): List<TipForRemoteWork>
+    fun getFeaturedTips(callback: (List<TipForRemoteWork>) -> Unit)
 
     fun getSomeTipsForSpecificCategory(count: Int, callback: (List<TipForRemoteWork>) -> Unit)
 
     fun getAllTipsForSpecificCategory(
         category: String,
         callback: (List<TipForRemoteWork>) -> Unit
-    ): List<TipForRemoteWork>
+    )
 
     // fun getATipContent()
 
-    fun saveNewTip(content:String, authorName: String, authorPicture: String)
+    fun saveNewTip(content: String, authorName: String, authorPicture: String)
 
 
 }
