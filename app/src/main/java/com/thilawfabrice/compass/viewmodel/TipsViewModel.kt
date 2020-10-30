@@ -8,9 +8,21 @@ import com.thilawfabrice.compass.usecases.ActionsOnTips
 
 class TipsViewModel(private val actions: ActionsOnTips) : ViewModel() {
 
-    private val liveSelectedCategory = MutableLiveData<String>()
+    private var lastSelectedCategory: String = "Recruiting"
+
+    fun getLastSelectedCategory() = lastSelectedCategory
+
+    private val liveSelectedCategory = MutableLiveData<String>().run {
+        postValue(lastSelectedCategory)
+        this
+    }
+
+    fun loadTips(callback: (List<TipForRemoteWork>) -> Unit, onError: (String) -> Unit) {
+        actions.getTips(callback, onError)
+    }
 
     fun updateSelectedCategory(category: String) {
+        lastSelectedCategory = category
         liveSelectedCategory.postValue(category)
     }
 
@@ -36,3 +48,5 @@ class TipsViewModel(private val actions: ActionsOnTips) : ViewModel() {
 
 
 }
+
+enum class DataState { LOADING, READY }

@@ -19,6 +19,7 @@ class DrawerLayoutFactory {
         }
         // get the reference to the slider and add the items
         slider.itemAdapter.add(items)
+        slider.selectedItemPosition = 1
         return slider
     }
 

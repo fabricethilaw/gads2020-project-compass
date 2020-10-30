@@ -10,7 +10,7 @@ import com.bumptech.glide.Glide
 import com.thilawfabrice.compass.R
 import com.thilawfabrice.compass.domain.entities.TipForRemoteWork
 
-class TipListAdapter() :
+class TipListAdapter :
     RecyclerView.Adapter<TipViewHolder>() {
 
     private var callback: TipSelectionListener? = null
@@ -57,15 +57,21 @@ class TipViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     fun bind(tipForRemoteWork: TipForRemoteWork) {
         item = tipForRemoteWork
         with(tipForRemoteWork) {
+            val contentSlice = if (content.length > 160) {
+                content.subSequence(0, 160)
+                    .toString() + itemView.context.getString(R.string.marquee)
+            } else {
+                content
+            }
 
-            contentTV.text = content
-            authorNameTV.text = author.name
-            authorRoleTV.text = author.role
+            contentTV.text = contentSlice
+            authorNameTV.text = author?.name
+            authorRoleTV.text = author?.role
             Glide.with(itemView.context)
-                .load(author.picture)
+                .load(author?.picture)
                 .circleCrop()
+                .placeholder(R.drawable.ic_picture_person)
                 .into(authorPictureImg)
-
         }
     }
 

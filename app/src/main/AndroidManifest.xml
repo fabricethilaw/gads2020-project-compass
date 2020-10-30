@@ -14,20 +14,29 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ui.TipDetailsActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/title_activity_tip_details"
-            android:theme="@style/Theme.TranslucentActivity" />
-        <activity
-            android:name=".MainActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:name=".Splash"
+            android:configChanges="orientation"
+            android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ui.newtip.AddTipActivity"
+            android:label="@string/title_activity_add_tip"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.displaytips.TipDetailsActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_tip_details"
+            android:theme="@style/Theme.TranslucentActivity" />
+        <activity
+            android:name=".Home"
+            android:label="@string/app_name"
+            android:launchMode="singleTop"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

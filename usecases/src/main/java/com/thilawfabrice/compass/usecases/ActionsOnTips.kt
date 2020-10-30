@@ -6,6 +6,10 @@ import com.thilawfabrice.compass.domain.entities.TipForRemoteWork
 class ActionsOnTips(private val repository: Repository) : InterfaceAddingTips,
     InterfaceGettingTips {
 
+    fun getTips(callback: (List<TipForRemoteWork>) -> Unit, onError: (String) -> Unit) {
+        repository.fetchTips(callback, onError)
+    }
+
     override fun getFeaturedTips(callback: (List<TipForRemoteWork>) -> Unit) {
         repository.getFeaturedTips(callback)
     }

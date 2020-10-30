@@ -6,11 +6,11 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:layout_marginStart="@dimen/micro_spacing"
         android:id="@+id/blockTitle"
         style="@style/TextAppearance.MaterialComponents.Headline5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/micro_spacing"
         android:background="@drawable/block_title_background"
         android:fontFamily="@font/source_sans_pro_bold"
         android:lines="1"
@@ -29,6 +29,7 @@
         android:gravity="center_horizontal"
         android:lines="1"
         android:textColor="@color/highlighted_title"
+        android:visibility="gone"
         app:drawableEndCompat="@drawable/ic_arrow_right"
 
         app:drawableTint="@color/highlighted_title"
@@ -40,8 +41,10 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/tipsListview"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/spacing_normal"
         android:layout_marginTop="@dimen/spacing_normal"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layoutManager="com.google.android.flexbox.FlexboxLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

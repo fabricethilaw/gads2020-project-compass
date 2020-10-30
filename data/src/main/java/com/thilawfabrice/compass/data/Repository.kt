@@ -40,10 +40,13 @@ class Repository(
         requestForFavTip.getFavoriteTips(callback)
     }
 
+    fun fetchTips(callback: (List<TipForRemoteWork>) -> Unit, onError: (String) -> Unit) {
+        tipsPersistenceSource.loadTips(callback, onError)
+    }
+
 }
 
 interface PersistenceSource {
-
 
     fun getFeaturedTips(callback: (List<TipForRemoteWork>) -> Unit)
 
@@ -59,6 +62,7 @@ interface PersistenceSource {
     fun saveNewTip(content: String, authorName: String, authorPicture: String)
 
 
+    fun loadTips(callback: (tips: List<TipForRemoteWork>) -> Unit, errorHandler: (String) -> Unit)
 }
 
 interface RequestsForFavTips {
