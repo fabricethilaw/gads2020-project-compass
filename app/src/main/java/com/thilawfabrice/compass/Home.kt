@@ -69,6 +69,7 @@ class Home : AppCompatActivity() {
             }
 
             override fun onDrawerStateChanged(newState: Int) {
+                // no need to take action here
             }
         })
     }
