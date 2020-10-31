@@ -57,10 +57,11 @@ class Home : AppCompatActivity() {
     private fun addOpenCloseSlideStateListener() {
         drawer_layout.addDrawerListener(object : DrawerLayout.DrawerListener {
             override fun onDrawerSlide(drawerView: View, slideOffset: Float) {
-
+                // no need to take action here
             }
 
             override fun onDrawerOpened(drawerView: View) {
+                // no need to take action here
             }
 
             override fun onDrawerClosed(drawerView: View) {

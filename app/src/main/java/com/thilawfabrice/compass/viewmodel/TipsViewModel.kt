@@ -20,17 +20,29 @@ class TipsViewModel(private val actions: ActionsOnTips) : ViewModel() {
         this
     }
 
+    /**
+     *
+     */
     fun loadTips(callback: (List<TipForRemoteWork>) -> Unit, onError: (String) -> Unit) {
         actions.getTips(callback, onError)
     }
 
+    /**
+     *
+     */
     fun updateSelectedCategory(category: String) {
         lastSelectedCategory = category
         liveSelectedCategory.postValue(category)
     }
 
+    /**
+     *
+     */
     fun getSelectedCategory() = liveSelectedCategory as LiveData<String>
 
+    /**
+     *
+     */
     fun getTipsOfCategory(category: String, callback: (List<TipForRemoteWork>) -> Unit) {
         actions.getAllTipsForSpecificCategory(category, callback)
     }

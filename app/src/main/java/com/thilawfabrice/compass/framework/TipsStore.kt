@@ -5,7 +5,9 @@ import com.thilawfabrice.compass.Compass
 import com.thilawfabrice.compass.data.PersistenceSource
 import com.thilawfabrice.compass.domain.entities.TipForRemoteWork
 
-
+/**
+ * Provides Firestore database as a concrete implementation of persistence data source
+ */
 class TipsStore(private val db: FirebaseFirestore) : PersistenceSource {
     private val tips = mutableListOf<TipForRemoteWork>()
     override fun loadTips(

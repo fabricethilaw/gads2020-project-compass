@@ -6,6 +6,9 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.thilawfabrice.compass.R
 
+/**
+ *  A Screen to add new tip
+ */
 class AddTipActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
