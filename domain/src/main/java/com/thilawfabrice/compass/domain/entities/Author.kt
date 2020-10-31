@@ -1,5 +1,8 @@
 package com.thilawfabrice.compass.domain.entities
 
+/**
+ * The author of a best pratice for working remotely
+ */
 class Author {
     var name: String = ""
     var picture: String? = null

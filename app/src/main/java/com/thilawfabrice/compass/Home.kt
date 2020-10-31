@@ -13,6 +13,9 @@ import com.thilawfabrice.compass.ui.displaytips.TipsPerCategoryFragment
 import com.thilawfabrice.compass.ui.widgets.DrawerLayoutFactory
 import kotlinx.android.synthetic.main.activity_main.*
 
+/**
+ * Main screen
+ */
 class Home : AppCompatActivity() {
 
 

@@ -10,6 +10,9 @@ class TipsViewModel(private val actions: ActionsOnTips) : ViewModel() {
 
     private var lastSelectedCategory: String = "Recruiting"
 
+    /**
+     *
+     */
     fun getLastSelectedCategory() = lastSelectedCategory
 
     private val liveSelectedCategory = MutableLiveData<String>().run {
@@ -48,5 +51,3 @@ class TipsViewModel(private val actions: ActionsOnTips) : ViewModel() {
 
 
 }
-
-enum class DataState { LOADING, READY }

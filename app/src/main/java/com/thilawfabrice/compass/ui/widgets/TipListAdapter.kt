@@ -10,6 +10,9 @@ import com.bumptech.glide.Glide
 import com.thilawfabrice.compass.R
 import com.thilawfabrice.compass.domain.entities.TipForRemoteWork
 
+/**
+ * Adapter for managing the display of tips cards in a listview
+ */
 class TipListAdapter :
     RecyclerView.Adapter<TipViewHolder>() {
 
