@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@null"
-    tools:context=".ui.TipDetailsActivity">
+    tools:context=".ui.displaytips.TipDetailsActivity">
 
     <include
         layout="@layout/box_tip_details"

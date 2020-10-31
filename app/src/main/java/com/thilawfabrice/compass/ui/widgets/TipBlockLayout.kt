@@ -47,7 +47,7 @@ class TipBlockLayout : FrameLayout {
     }
 
     private fun initListView() {
-        // listView.setHasFixedSize(true)
+        listView.setHasFixedSize(true)
         val flexLayoutManager = FlexboxLayoutManager(listView.context)
         flexLayoutManager.flexDirection = FlexDirection.ROW
         flexLayoutManager.justifyContent = JustifyContent.SPACE_EVENLY
@@ -61,7 +61,7 @@ class TipBlockLayout : FrameLayout {
     fun setTitle(title: String) {
         _title = title
         titleTextView.text = _title
-        titleTextView.postInvalidate()
+        //titleTextView.postInvalidate()
     }
 
     fun setActionButtonText(text: String) {
