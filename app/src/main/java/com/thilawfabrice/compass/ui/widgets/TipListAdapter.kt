@@ -69,7 +69,11 @@ class TipViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
             contentTV.text = contentSlice
             authorNameTV.text = author?.name
-            authorRoleTV.text = author?.role
+            val company =
+                "${author?.companyName?.run { if (this.isBlank().not()) "at $this" else "" }}"
+            val role = "${author?.role} $company"
+
+            authorRoleTV.text = role
             Glide.with(itemView.context)
                 .load(author?.picture)
                 .circleCrop()

@@ -81,7 +81,11 @@ class TipDetailsActivity : AppCompatActivity(), View.OnClickListener {
             with(it) {
                 contentTV.text = content
                 authorNameTV.text = author?.name
-                authorRoleTV.text = author?.role
+                val company =
+                    "${author?.companyName?.run { if (this.isBlank().not()) "at $this" else "" }}"
+                val role = "${author?.role} $company"
+
+                authorRoleTV.text = role
                 com.bumptech.glide.Glide.with(view.context)
                     .load(author?.picture)
                     .circleCrop()
