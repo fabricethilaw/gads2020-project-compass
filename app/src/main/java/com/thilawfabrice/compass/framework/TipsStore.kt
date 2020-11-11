@@ -1,6 +1,7 @@
 package com.thilawfabrice.compass.framework
 
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.QuerySnapshot
 import com.thilawfabrice.compass.Compass
 import com.thilawfabrice.compass.data.PersistenceSource
 import com.thilawfabrice.compass.domain.entities.TipForRemoteWork
@@ -14,21 +15,42 @@ class TipsStore(private val db: FirebaseFirestore) : PersistenceSource {
         callback: (tips: List<TipForRemoteWork>) -> Unit,
         errorHandler: (String) -> Unit
     ) {
-        db.collection(Compass.FIREBASE_TIPS_URL)
-            .get()
-            .addOnSuccessListener { result ->
-                result.map { document ->
-                    document.toObject(TipForRemoteWork::class.java)
-                }.let {
-                    tips.addAll(it)
-                    callback(tips)
-                }
+
+        db.collection(Compass.FIREBASE_TIPS_URL).addSnapshotListener { snapshot, e ->
+            if (e != null) {
+                // Log.w(TAG, "Listen failed.", e)
+                return@addSnapshotListener
             }
 
-            .addOnFailureListener { exception ->
-                exception.message?.let { errorHandler.invoke(it) }
-                //  Log.d(TAG, "Error getting documents: ", exception)
+            if (snapshot != null && !snapshot.isEmpty) {
+                // Log.d(TAG, "Current data: ${snapshot.data}")
+                dispatchData(result = snapshot, callback = callback)
             }
+        }
+
+        /* db.collection(Compass.FIREBASE_TIPS_URL)
+             .get()
+             .addOnSuccessListener { result ->
+                 dispatchData(result, callback)
+             }
+
+             .addOnFailureListener { exception ->
+                 exception.message?.let { errorHandler.invoke(it) }
+                 //  Log.d(TAG, "Error getting documents: ", exception)
+             }*/
+    }
+
+    private fun dispatchData(
+        result: QuerySnapshot,
+        callback: (tips: List<TipForRemoteWork>) -> Unit
+    ) {
+        result.map { document ->
+            document.toObject(TipForRemoteWork::class.java)
+        }.let {
+            tips.clear()
+            tips.addAll(it)
+            callback(tips)
+        }
     }
 
     override fun getFeaturedTips(callback: (List<TipForRemoteWork>) -> Unit) {

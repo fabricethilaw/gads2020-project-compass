@@ -19,8 +19,6 @@ class Compass : Application() {
         FirebaseApp.initializeApp(this)
         tipViewModel.loadTips(
             {
-                // Right when data are available, display tips for a default topic
-                tipViewModel.updateSelectedCategory(tipViewModel.getLastSelectedCategory())
             },
             {
                 //  Toast.makeText(this, "Error when loading $it", Toast.LENGTH_LONG).show()

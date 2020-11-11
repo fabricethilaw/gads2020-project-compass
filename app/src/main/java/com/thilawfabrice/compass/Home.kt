@@ -4,6 +4,7 @@ import android.content.res.Configuration
 import android.os.Bundle
 import android.view.Menu
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -19,7 +20,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 class Home : AppCompatActivity() {
 
 
-    private val drawerLayoutFactory by lazy { DrawerLayoutFactory() }
+    private val drawerLayoutFactory by lazy { DrawerLayoutFactory(sliderItemIdentifiers) }
     private lateinit var actionBarDrawerToggle: ActionBarDrawerToggle
     private val viewModel by lazy { (application as Compass).tipViewModel }
     private var selectedDrawerItem: String? = "Recruiting"
@@ -29,11 +30,7 @@ class Home : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val toolbar: Toolbar = findViewById(R.id.toolbar)
 
-        // Handle Toolbar
-        setSupportActionBar(toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(false)
-        supportActionBar?.setHomeButtonEnabled(true)
-
+        setActionBar(toolbar)
 
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragmentContainer, TipsPerCategoryFragment.newInstance()).commit()
@@ -47,11 +44,30 @@ class Home : AppCompatActivity() {
         addOpenCloseSlideStateListener()
 
         drawer_layout.addDrawerListener(actionBarDrawerToggle)
+
         drawerLayoutFactory.buildMenuItems(slider)
+
+        viewModel.liveTipData().observeForever {
+            Toast.makeText(this, "${it.size}", Toast.LENGTH_SHORT).show()
+            drawerLayoutFactory.updateBadges(slider, it)
+        }
+        viewModel.tipsLoadingStatus().observeForever {
+            if (it) {
+                Toast.makeText(this, "$it", Toast.LENGTH_LONG).show()
+            }
+        }
+
 
         // specify a click listener
         addClickListenerForSlider()
 
+    }
+
+    private fun setActionBar(toolbar: Toolbar) {
+        // Handle Toolbar
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(false)
+        supportActionBar?.setHomeButtonEnabled(true)
     }
 
     private fun addOpenCloseSlideStateListener() {
@@ -111,4 +127,20 @@ class Home : AppCompatActivity() {
             super.onBackPressed()
         }
     }
+
+    private val sliderItemIdentifiers = listOf(
+        R.string.menu_featured,
+        R.string.menu_recruiting,
+        R.string.menu_management,
+        R.string.menu_communication,
+        R.string.menu_way_of_work,
+        R.string.menu_space,
+        R.string.menu_meetings,
+        R.string.menu_connection,
+        R.string.menu_social,
+        R.string.menu_boundaries,
+        R.string.menu_health,
+        R.string.menu_accountability
+    )
+
 }

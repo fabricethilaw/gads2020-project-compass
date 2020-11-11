@@ -45,7 +45,7 @@ class TipListAdapter :
      */
     fun update(freshData: List<TipForRemoteWork>) {
         data.clear()
-        data.addAll(freshData)
+        data.addAll(freshData.distinctBy { it.content })
         notifyDataSetChanged()
     }
 }
