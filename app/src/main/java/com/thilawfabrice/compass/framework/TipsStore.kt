@@ -18,26 +18,13 @@ class TipsStore(private val db: FirebaseFirestore) : PersistenceSource {
 
         db.collection(Compass.FIREBASE_TIPS_URL).addSnapshotListener { snapshot, e ->
             if (e != null) {
-                // Log.w(TAG, "Listen failed.", e)
                 return@addSnapshotListener
             }
 
             if (snapshot != null && !snapshot.isEmpty) {
-                // Log.d(TAG, "Current data: ${snapshot.data}")
                 dispatchData(result = snapshot, callback = callback)
             }
         }
-
-        /* db.collection(Compass.FIREBASE_TIPS_URL)
-             .get()
-             .addOnSuccessListener { result ->
-                 dispatchData(result, callback)
-             }
-
-             .addOnFailureListener { exception ->
-                 exception.message?.let { errorHandler.invoke(it) }
-                 //  Log.d(TAG, "Error getting documents: ", exception)
-             }*/
     }
 
     private fun dispatchData(

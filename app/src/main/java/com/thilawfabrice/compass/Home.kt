@@ -4,7 +4,6 @@ import android.content.res.Configuration
 import android.os.Bundle
 import android.view.Menu
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -48,19 +47,10 @@ class Home : AppCompatActivity() {
         drawerLayoutFactory.buildMenuItems(slider)
 
         viewModel.liveTipData().observeForever {
-            Toast.makeText(this, "${it.size}", Toast.LENGTH_SHORT).show()
             drawerLayoutFactory.updateBadges(slider, it)
         }
-        viewModel.tipsLoadingStatus().observeForever {
-            if (it) {
-                Toast.makeText(this, "$it", Toast.LENGTH_LONG).show()
-            }
-        }
-
-
         // specify a click listener
         addClickListenerForSlider()
-
     }
 
     private fun setActionBar(toolbar: Toolbar) {

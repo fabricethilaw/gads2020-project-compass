@@ -1,7 +1,5 @@
 package com.thilawfabrice.compass.ui.widgets
 
-import android.util.Log
-import androidx.lifecycle.LiveData
 import com.mikepenz.materialdrawer.holder.StringHolder
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem
 import com.mikepenz.materialdrawer.model.interfaces.nameRes
@@ -32,46 +30,20 @@ class DrawerLayoutFactory(private val sliderItemIdentifiers: List<Int>) {
     private fun buildSingleItem(name: Int, _identifier: Int) = PrimaryDrawerItem()
         .apply {
             nameRes = name
-            identifier = _identifier.toLong()
+            tag = name
+            // identifier = _identifier.toLong()
             badge = StringHolder("0")
         }
 
-    fun trackTopicContentSize(
-        slider: MaterialDrawerSliderView,
-        itemCountForEachTopic: LiveData<Map<String, Int>>
-    ) {
-        itemCountForEachTopic.observeForever { map ->
-            for (topic in map.keys) {
-                val sliderItem: PrimaryDrawerItem? = resolveSliderItemId(slider, topic)
-                sliderItem?.let {
-
-                    map[topic]?.let { count ->
-                        slider.updateBadge(it.identifier, badge = StringHolder(count))
-                    }
-                }
-            }
-        }
-    }
-
-
-    private fun resolveSliderItemId(
-        slider: MaterialDrawerSliderView,
-        topic: String
-    ): PrimaryDrawerItem? {
-
-        return sliderItems.firstOrNull {
-            Log.d("RESOLVING ITEMS", "Id reslved : $topic")
-            it.name.toString() == topic
-        }
-    }
 
     fun updateBadges(slider: MaterialDrawerSliderView, tips: List<TipForRemoteWork>) {
-        val map = getContentSizeForEachTopic(slider, tips)
-        Log.d("TIP COUNT", "TIP COUNT : \n$map")
+        val map = getContentSizeForEachTopic(slider, tips).toMap()
         for (item in sliderItems) {
+            if (item.name == null) return
+            map[item.name!!.textRes.toLong()]
             slider.updateBadge(
                 identifier = item.identifier,
-                badge = StringHolder(map[item.identifier].toString())
+                badge = StringHolder(map[item.name!!.textRes.toLong()].toString())
             )
         }
     }
