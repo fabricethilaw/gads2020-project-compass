@@ -36,13 +36,14 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="?android:attr/listPreferredItemHeightSmall"
+            android:layout_height="wrap_content"
+            android:minHeight="?android:attr/listPreferredItemHeightSmall"
             android:layout_marginTop="@dimen/media_block_top_margin">
 
             <ImageView
                 android:id="@+id/tipAuthorPicture"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
                 android:background="@drawable/picture_background"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintDimensionRatio="1:1"
@@ -68,9 +69,10 @@
                 android:id="@+id/tipAuthorRole"
                 style="@style/TextAppearance.AppCompat.Body1"
                 android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:maxLines="2"
+                android:ellipsize="marquee"
                 android:textColor="@color/media_content"
                 app:autoSizeMaxTextSize="14sp"
                 app:autoSizeTextType="uniform"

@@ -119,7 +119,7 @@ class Home : AppCompatActivity() {
     }
 
     private val sliderItemIdentifiers = listOf(
-        R.string.menu_featured,
+        R.string.menu_zoom,
         R.string.menu_recruiting,
         R.string.menu_management,
         R.string.menu_communication,

@@ -10,7 +10,7 @@ class TipsViewModel(private val actions: ActionsOnTips) : ViewModel() {
 
     private var tipsAreLoaded = MutableLiveData<Boolean>(false)
     fun tipsLoadingStatus(): LiveData<Boolean> = tipsAreLoaded
-    private var lastSelectedCategory: String = "Recruiting"
+    private var lastSelectedCategory: String = "Zoom"
     private val liveTipDataAvailable = MutableLiveData<List<TipForRemoteWork>>(listOf())
 
     /**

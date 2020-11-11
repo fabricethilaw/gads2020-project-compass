@@ -11,12 +11,13 @@
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="menu_featured">Featured</string>
+    <string name="menu_zoom">Zoom</string>
     <string name="menu_recruiting">Recruiting</string>
     <string name="menu_management">Management</string>
     <string name="menu_communication">Communication</string>
     <string name="menu_way_of_work">Way of work</string>
     <string name="menu_space">Space</string>
-    <string name="menu_meetings">meetings</string>
+    <string name="menu_meetings">Meetings</string>
     <string name="menu_connection">Connection</string>
     <string name="menu_social">Social</string>
     <string name="menu_boundaries">Boundaries</string>
@@ -55,5 +56,6 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="app_motto">Best practices and\ntips for working remotely.</string>
+    <string name="footer">GADS Community Projects Challenge 2020</string>
     <string name="marquee">...</string>
 </resources>
